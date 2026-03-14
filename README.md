@@ -11,3 +11,14 @@ To build a practical sentiment classifier for Tulu to English code mixed text, t
 
 Tulu–English code-mixed text presents several preprocessing challenges that standard English NLP pipelines fail to handle gracefully: inconsistent transliteration between Kannada script and Latin alphabet, heavy emoji usage, embedded URLs, and agglutinative word formation typical of Dravidian languages. The custom `TuluPreprocessor` class in `src/preprocess.py` addresses these through a sequence of normalization, tokenization with sentencepiece (which handles subword units better for low resource languages), and selective stopword removal. Exploratory analysis shows that preprocessing reduces average text length by about 25 to 30% while preserving sentiment bearing tokens, and the resulting dataset contains 4,200 labeled examples after filtering (2100 positive, 850 negative, 1150 neutral, 100 mixed). This pipeline is designed to be reusable for both training and inference.
 
+## Model Architecture
+
+Two complementary architectures form the core of this sentiment classifier, reflecting best practices for low-resource code-mixed NLP [2][3]:
+
+1. **BiGRU + Self-Attention (Primary Baseline)**: FastText embeddings feed into a bidirectional GRU with self-attention mechanism, followed by a dense classification layer. This architecture achieves state-of-the-art performance (82% accuracy, 0.81 macro F1) on Tulu offensive language detection, making it a strong baseline for sentiment [2].
+
+2. **mBERT Fine-tuning**: BERT-base-multilingual-cased with a frozen base and task-specific head, leveraging cross-lingual transfer learning. While transformers underperform on extreme low-resource settings (52–54% F1 on similar Dravidian tasks), they provide robustness to unseen code-mixing patterns [3].
+
+Training uses stratified 80/10/10 splits, Adam optimizer and early stopping on validation macro F1 to combat class imbalance.
+
+
