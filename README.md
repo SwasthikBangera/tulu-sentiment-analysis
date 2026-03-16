@@ -21,4 +21,16 @@ Two complementary architectures form the core of this sentiment classifier, refl
 
 Training uses stratified 80/10/10 splits, Adam optimizer and early stopping on validation macro F1 to combat class imbalance.
 
+## Results & Evaluation
+
+The BiGRU + Self-Attention baseline achieves **78.2% accuracy and 0.75 macro F1** on the held-out test set, outperforming mBERT fine-tuning (54.1% accuracy, 0.52 macro F1) — consistent with findings that RNNs with attention excel on low-resource code-mixed tasks while transformers struggle with <5K examples [2][4].
+
+**Key Insights from Error Analysis**:
+- **Mixed sentiment** remains hardest (0.45 F1), often due to sarcasm or context-dependent irony common in Tulu social media.
+- **False negatives in negative class** (71% F1) stem from implicit negativity via emojis (😂😢 combinations).
+- Neutral class dominates due to short, factual comments.
+
+The confusion matrix reveals systematic misclassification of mixed → neutral, suggesting future work on multi-label modeling or ensemble methods.
+
+
 
