@@ -32,5 +32,21 @@ The BiGRU + Self-Attention baseline achieves **78.2% accuracy and 0.75 macro F1*
 
 The confusion matrix reveals systematic misclassification of mixed → neutral, suggesting future work on multi-label modeling or ensemble methods.
 
+## Usage & API
+
+### Live Demo
+🌊 **[Try it here →](https://huggingface.co/spaces/swasthikbangera/tulu-sentiment)**
+
+### Run Locally
+```bash
+# Clone repo and install dependencies
+git clone https://github.com/swasthikbangera/tulu-sentiment-analysis
+pip install -r requirements.txt
+
+# Start API backend
+uvicorn src.api:app --reload --port 8000
+
+# Start Streamlit frontend (new terminal)
+streamlit run app.py
 
 
