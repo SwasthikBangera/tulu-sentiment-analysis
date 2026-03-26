@@ -1,3 +1,9 @@
+![CI](https://github.com/yourname/tulu-sentiment-analysis/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![HF Spaces](https://img.shields.io/badge/🤗%20Spaces-Live%20Demo-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Macro F1](https://img.shields.io/badge/Macro%20F1-0.75-orange)
+
 # TuluSenti: Sentiment Analysis for Tulu - English Code Mixed Text
 
 Tulu (*ತುಳು*, Tulu Bāse) is a South Dravidian language spoken by approximately 2 million people across the Tulu Nadu region — the coastal districts of Dakshina Kannada and Udupi in Karnataka and Kasaragod in Kerala, India. Despite its rich oral and literary heritage preserved in the ancient Tigalari script, Tulu remains critically underrepresented in modern Natural Language Processing (NLP) research. 
