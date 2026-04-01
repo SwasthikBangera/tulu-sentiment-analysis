@@ -55,4 +55,30 @@ uvicorn src.api:app --reload --port 8000
 # Start Streamlit frontend (new terminal)
 streamlit run app.py
 
+## Installation & Deployment
 
+```bash
+# 1. Clone the repository
+git clone https://github.com/yourname/tulu-sentiment-analysis
+cd tulu-sentiment-analysis
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Run the API backend
+uvicorn src.api:app --reload --port 8000
+
+# 4. Run the Streamlit app (new terminal)
+streamlit run app.py
+```
+
+### Deploy Your Own Instance
+The Streamlit frontend is hosted on [Hugging Face Spaces](https://huggingface.co/spaces/swasthikbangera/tulu-sentiment).
+The model weights are on [HF Model Hub](https://huggingface.co/swasthikbangera/tulu-bigru).
+CI is automated via GitHub Actions on every push to `main`.
+
+## References
+[1] DravidianLangTech@RANLP 2024 Shared Task: Sentiment Analysis in Tamil and Tulu.
+[2] "Overcoming Low-Resource Barriers in Tulu: Neural Models and Transfer Learning." arXiv:2508.11166.
+[3] "Deep Learning Approach for Sentiment Analysis in Tamil and Tulu." ACL 2025.
+[4] "Sentiment Analysis in Tamil and Tulu with Re-Ranking Enhanced LLM." OpenReview 2025.
